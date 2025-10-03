@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+{% block content %}
+
+	{% block category %}
+	
+	<div class="collapse navbar-collapse">
+		<!-- menus -->
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item dropdown active">
+				<a class="nav-link dropdown-toggle" href="/">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'about' %}">About</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'gallery' %}">Galerie</a>
+			</li>
+			
+			
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#">Produits</a>
+				<ul class="dropdown-menu">
+					{% for post in blog_cat %}
+					<!--<li><a class="dropdown-item" href="{% url "category" post.slug %}">{{post.name}}</a></li> -->
+					{% endfor %}
+					<!--<li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li> -->
+					<li><a class="dropdown-item" href="{% url 'produits' %}">Fruits déshydratés</a></li>
+					<li><a class="dropdown-item" href="{% url 'produits' %}">Légumes déshydratés</a></li>
+					<li><a class="dropdown-item" href="{% url 'produits' %}">Cosmétiques</a></li>
+				</ul>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'contact' %}">Contact</a>
+			</li>
+		</ul>
+	</div>
+	{% endblock category %}
+	<!-- section main content -->
+	<section class="main-content">
+		
+		<div class="container-xl">
+
+			<h3 class="bg-dark text-center text-white" style="margin-bottom: 60px; margin-top: -40px;">A NOTRE SUJET</h3>
+			
+			<div class="row gy-4">
+
+				<div class="col-lg-8" style="display: flex; margin: auto;">
+
+                    <div class="page-content bordered rounded padding-30" style=" box-shadow: 5px 10px 10px 10px green;">
+
+                        <!-- <img src="{%static 'images/other/about1.png' %}" alt="Katen Doe" class="rounded mb-4" /> -->
+
+						<h3>QUI SOMMES-NOUS ?</h3>
+
+                        <p>Le "Scoop des Femmes Résilientes C.F.R", se veut être la référence en matière de produits issus des domaines agricole made in Cameroun et destiné au marché national et étranger.</p>
+
+                        <p>Elle a pour principaux objectifs:</p>
+						<ul>
+							<li>Promouvoir l'économie sociale,</li>
+							<li>Apporter un appui pour l'amélioration de la qualité de vie des femmes rurales et urbaines,</li>
+							<li>Rendre les femmes rurales autonomes,</li>
+							<li>Favoriser l'auto-emploi,</li>
+							<li>Mettre sur pied un réseau efficient micro, et micro-économique des personnes pour valoriser la production camerounaise,</li>
+							<li>Promouvoir un système de production respectueux de l'environnement,</li>
+							<li>Lutter contre le gaspillage,</li>
+							<li>Récycler,</li>
+							<li>Utiliser des produits respectueux de l'environnement,</li>
+							<li>Rassembler des productrices actives, qui veulent se développer par leurs activités pour améliorer en qualité et en quantité leur production.</li>
+							<li>Développer les chaines de transformations, déshydratation et de commercialisation agricole,</li>
+							<li>Moderniser les outils et équipements dans les secteurs agro-alimentaires en matière de déshydratation et transformation,</li>
+							<li>Former les différents acteurs de cette chaine de valeur,</li>
+							<li>Commercialiser les produits sains.</li>
+						</ul>
+                        
+                        <hr class="my-4" />
+
+						<h3>NOTRE EQUIPE</h3>
+
+						<div class="row">
+							<div class="col-lg-4" style="display: flex; margin-bottom: 25px;">
+								<div class="card" style="width: 17rem; margin: auto">
+									<img style="height: 200px;" class="card-img-top" src="{% static '/images/other/5.png' %}" alt="Card image cap">
+									<div class="card-body">
+										<h5 class="card-title">Delphine Dama</h5>
+										<p class="card-text">Fondatrice / Présidente</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-4" style="display: flex; margin-bottom: 25px;">
+								<div class="card" style="width: 17rem; margin: auto">
+									<img style="height: 200px;" class="card-img-top" src="{% static '/images/other/1.png' %}" alt="Card image cap">
+									<div class="card-body">
+										<h5 class="card-title" style="text-align: center;">Batoul Marie S. </h5>
+										<p class="card-text" style="text-align: center;">Secrétaire </p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-4" style="display: flex; margin-bottom: 25px;">
+								<div class="card" style="width: 17rem; margin: auto">
+									<img style="height: 200px;" class="card-img-top" src="{% static '/images/other/4.png' %}" alt="Card image cap">
+									<div class="card-body">
+										<h5 class="card-title" style="text-align: center;">M. Dama Marthe</h5> 
+										<p class="card-text" style="text-align: center;">Vice Présidente</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-4" style="display: flex; margin-bottom: 25px;">
+								<div class="card" style="width: 17rem; margin: auto">
+									<img style="height: 200px;" class="card-img-top" src="{% static '/images/other/3.png' %}" alt="Card image cap">
+									<div class="card-body">
+										<h5 class="card-title" style="text-align: center;">Bouké Mabéa A.</h5>
+										<p class="card-text" style="text-align: center;">Trésoriere</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-4" style="display: flex; margin-bottom: 25px;">
+								<div class="card" style="width: 17rem; margin: auto">
+									<img style="height: 200px;" class="card-img-top" src="{% static '/images/other/2.png' %}" alt="Card image cap">
+									<div class="card-body">
+										<h5 class="card-title" style="text-align: center;">Mahimie Nadine</h5>
+										<p class="card-text" style="text-align: center;"> Resp. Marketing & Com.</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-4" style="display: flex; margin-bottom: 25px;">
+								<div class="card" style="width: 17rem; margin: auto">
+									<img style="height: 200px;" class="card-img-top" src="{% static '/images/other/6.png' %}" alt="Card image cap">
+									<div class="card-body">
+										<h5 class="card-title" style="text-align: center;">Nafissatou B.</h5>
+										<p class="card-text" style="text-align: center;">Vice secrétaire</p> 
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						
+                        
+                    </div>
+
+					
+
+                </div>
+
+
+				
+
+			</div>
+
+		</div>
+	</section>
+
+
+{% endblock content %}
+{% endblock body %}

@@ -1,0 +1,455 @@
+	{% extends "base.html" %}
+    {% load static %}
+
+	{% block category %}
+	
+	<div class="collapse navbar-collapse">
+		<!-- menus -->
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item dropdown active">
+				<a class="nav-link dropdown-toggle" href="">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'about' %}">About</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'gallery' %}">Galerie</a>
+			</li>
+			
+			
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#">Produits</a>
+				<ul class="dropdown-menu">
+					{% for post in blog_cat %}
+					<!--<li><a class="dropdown-item" href="{% url "category" post.slug %}">{{post.name}}</a></li> -->
+					{% endfor %}
+					<!--<li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li> -->
+					<li><a class="dropdown-item" href="{% url 'produits' %}">Fruits déshydratés</a></li>
+					<li><a class="dropdown-item" href="{% url 'produits' %}">Légumes déshydratés</a></li>
+					<li><a class="dropdown-item" href="{% url 'produits' %}">Cosmétiques</a></li>
+				</ul>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'contact' %}">Contact</a>
+			</li>
+		</ul>
+	</div>
+	{% endblock category %}
+    {% block body %}
+    <!-- hero section -->
+	<section id="hero">
+
+		<h3 class="bg-dark text-center text-white">SCOOP DES FEMMES RESILIENTES - C.F.R -</h3>
+
+		<div class="container-xl">
+
+			
+
+			<div class="row gy-4">
+
+				<div class="col-lg-8">
+					
+					<!-- featured post large -->
+					{% for post in main_post %}
+					<div class="post featured-post-lg">
+						<div class="details clearfix">
+							<a href="category.html" class="category-badge">{{post.category}}</a>
+							<h2 class="post-title"><a href="{% url "blog_detail" post.blog_slug %}">{{post.title}}</a></h2>
+							<ul class="meta list-inline mb-0">
+								<li class="list-inline-item"><a href="#">{{post.author}}</a></li>
+								<li class="list-inline-item">{{post.date}}</li>
+							</ul>
+						</div>
+						<a href="{% url "blog_detail" post.blog_slug %}">
+							<div class="thumb rounded">
+								<div class="inner data-bg-image" data-bg-image="{%static 'images/posts/Restauration.jpg' %}"></div>
+							</div>
+						</a>
+					</div>
+					{% endfor %}
+
+				</div>
+
+				<div class="col-lg-4">
+
+					<div class="widget rounded">
+							<div class="widget-about data-bg-image text-center" data-bg-image="images/map-bg.png">
+								<img src="{% static 'images/logo2.png' %}" alt="logo" class="mb-4" />
+								<p class="mb-4">Salut, nous sommes une communauté de femmes rurales qui produisons et commercialisons des produits artisanaux tels que : 
+									les fruits et légumes déshydratés, les produits cosmétiques (savons de ménage, huiles et essences naturelles..).</br>
+									<span><a href="{% url 'contact' %}">N'hésitez pas á nous contacter pour vos commandes.</a></span> </p>
+								<ul class="social-icons list-unstyled list-inline mb-0">
+									<li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+									<li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+									<li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+									<li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+									<li class="list-inline-item"><a href="#"><i class="fab fa-medium"></i></a></li>
+									<li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+								</ul>
+							</div>
+						</div>
+
+					<!-- post tabs -->
+					
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+	<!-- section main content -->
+	<section class="main-content">
+		<div class="container-xl">
+
+			<div class="row gy-4">
+
+				<div class="col-lg-8">
+
+					<!-- section header -->
+					<div class="section-header">
+						<h3 class="section-title">Blog Edition</h3>
+						<!--<img src="{% static 'images/wave.png' %}" class="wave" alt="wave" />-->
+					</div>
+
+					<div class="padding-30 rounded bordered">
+						<div class="row gy-5">
+							<div>
+								<!-- post -->
+								<div class="post">
+									<div class="thumb rounded">
+										<a href="category.html" class="category-badge position-absolute">Description</a>
+										<span class="post-format">
+											<i class="icon-picture"></i>
+										</span>
+										<a href="blog-single.html">
+											<div class="inner">
+												<img src="{% static 'images/posts/Fotolia1.png' %}" alt="post-title" />
+											</div>
+										</a>
+									</div>
+									<ul class="meta list-inline mt-4 mb-0">
+										<li class="list-inline-item"><a href="#"><img src="images/other/author-sm.png" class="author" alt="author"/>Delphine Dama</a></li>
+										<li class="list-inline-item">29 Mai 2025</li>
+									</ul>
+									<h5 class="post-title mb-3 mt-3"><a href="#">Paysage agricole de l'Adamaoua</a></h5>
+									<p class="excerpt mb-0">La région est marquée par une agriculture diversifiée, avec des cultures telles que le sorgho, le maïs et le
+										cacao, les tubercules et légumes. La culture du cacao, autrefois limitée au sud du Cameroun, prend de l'ampleur dans l'Adamaoua, 
+										devenant un bassin de production. L'agriculture familiale est pratiquée, mais elle est parfois fragilisée par les conflits d'accès aux ressources 
+										et les pratiques traditionnelles comme la transhumance et les feux de brousse. 
+									</p>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="spacer" data-height="50"></div>
+
+					<!-- horizontal ads -->
+					<div class="ads-horizontal text-md-center">
+						<span class="ads-title">- Sponsored Ad -</span>
+						<a href="#">
+							<img src="{% static 'images/ads/ad-751.png' %}" alt="Advertisement" />
+						</a>
+					</div>
+
+					<div class="spacer" data-height="50"></div>
+
+					<!-- section header -->
+					<div class="section-header">
+						<h3 class="section-title">Nos Produits et Services</h3>
+						<!--<img src="images/wave.svg" class="wave" alt="wave" />-->
+					</div>
+
+					<div class="padding-30 rounded bordered">
+						<div class="row gy-5">
+							<div class="col-sm-6">
+								<!-- post large -->
+								<div class="post">
+									<div class="thumb rounded">
+										<a href="{% url 'produits' %}" class="category-badge position-absolute">Alimentaires</a>
+										<!--<span class="post-format">
+											<i class="icon-picture"></i>
+										</span>-->
+										<a href="#">
+											<div class="inner">
+												<img src="{% static 'images/other/agro1.png' %}" alt="post-title" />
+											</div>
+										</a>
+									</div>
+									<ul class="meta list-inline mt-4 mb-0">
+										<li class="list-inline-item"><a href="#"><img src="images/other/author-sm.png" class="author" alt="author"/>Dama</a></li>
+										<li class="list-inline-item">10 Juin 2025</li>
+									</ul>
+									<h5 class="post-title mb-3 mt-3"><a href="{% url 'produits' %}">C'est quoi nos produits agro-alimentaires ?</a></h5>
+									<p class="excerpt mb-0">D'agro-alimentation, notre coopérative, vous offre une panoplie de produits déshydratés allant des fruits tels des ananas, des mangues, des bananes-plantains, des oranges... 
+										jusqu-aux légumes comme par exemples les haricots, les arachides, et également les huiles essentielles.</p>
+								</div>
+								<!-- post -->
+								{% for post in prodserv %}
+								<div class="post post-list-sm square before-seperator">
+									<div class="thumb rounded">
+										<a href="{% url "blog_detail" post.blog_slug %}">
+											<div class="inner">
+												<img src="{% static 'images/mix_fruit.png' %}" alt="post-title" />
+											</div>
+										</a>
+									</div>
+									<div class="details clearfix">
+										<h6 class="post-title my-0"><a href="{% url "blog_detail" post.blog_slug %}">{{post.title}}</a></h6>
+										<ul class="meta list-inline mt-1 mb-0">
+											<li class="list-inline-item">{{post.date}}</li>
+										</ul>
+									</div>
+								</div>
+								{% endfor %}
+								<!-- post 
+								<div class="post post-list-sm square before-seperator">
+									<div class="thumb rounded">
+										<a href="blog-single.html">
+											<div class="inner">
+												<img src="images/posts/trending-sm-2.jpg" alt="post-title" />
+											</div>
+										</a>
+									</div>
+									<div class="details clearfix">
+										<h6 class="post-title my-0"><a href="blog-single.html">An Incredibly Easy Method That Works For All</a></h6>
+										<ul class="meta list-inline mt-1 mb-0">
+											<li class="list-inline-item">29 March 2021</li>
+										</ul>
+									</div>
+								</div> -->
+							</div>
+							<div class="col-sm-6">
+								<!-- post large -->
+								<div class="post">
+									<div class="thumb rounded">
+										<a href="{% url 'produits' %}" class="category-badge position-absolute">Cosmétiques</a>
+										<!--<span class="post-format">
+											<i class="icon-earphones"></i>
+										</span>-->
+										<a href="#">
+											<div class="inner">
+												<img src="{% static 'images/other/cosme.png' %}" alt="post-title" />
+											</div>
+										</a>
+									</div>
+									<ul class="meta list-inline mt-4 mb-0">
+										<li class="list-inline-item"><a href="#"><img src="images/other/author-sm.png" class="author" alt="author"/>Dama</a></li>
+										<li class="list-inline-item">10 Juin 2025</li>
+									</ul>
+									<h5 class="post-title mb-3 mt-3"><a href="{% url 'produits' %}">Découvrir nos produits cosmétiques</a></h5>
+									<p class="excerpt mb-0">Nous sommes également fournisseur des produits naturels cosmétiques de première qualité. 
+										Nous avons une gamme complète de produits organiques, pour le corps (savons, lait corporelle, parfuns...) et pour le ménage (savons et fragrances).
+										Nos produits sont faits á base de produits organiques naturels</p>
+								</div>
+								<!-- post -->
+								{% for post in prodserv1 %}
+								<div class="post post-list-sm square before-seperator">
+									<div class="thumb rounded">
+										<a href="{% url "blog_detail" post.blog_slug %}">
+											<div class="inner">
+												<img src="{% static 'images/produits-cosmetiques.png' %}" alt="post-title" />
+											</div>
+										</a>
+									</div>
+									<div class="details clearfix">
+										<h6 class="post-title my-0"><a href="{% url "blog_detail" post.blog_slug %}">{{post.title}}</a></h6>
+										<ul class="meta list-inline mt-1 mb-0">
+											<li class="list-inline-item">{{post.date}}</li>
+										</ul>
+									</div>
+								</div>
+								{% endfor %}
+								<!-- post 
+								<div class="post post-list-sm square before-seperator">
+									<div class="thumb rounded">
+										<a href="blog-single.html">
+											<div class="inner">
+												<img src="images/posts/trending-sm-4.jpg" alt="post-title" />
+											</div>
+										</a>
+									</div>
+									<div class="details clearfix">
+										<h6 class="post-title my-0"><a href="blog-single.html">Master The Art Of Nature With These 7 Tips</a></h6>
+										<ul class="meta list-inline mt-1 mb-0">
+											<li class="list-inline-item">29 March 2021</li>
+										</ul>
+									</div>
+								</div>-->
+							</div>
+						</div>
+					</div>
+
+					<div class="spacer" data-height="50"></div>
+
+					<!-- section header -->
+
+					<div class="spacer" data-height="50"></div>
+
+					<!-- section header -->
+					<div class="section-header">
+						<h3 class="section-title">Dernières Publications</h3>
+					</div>
+
+					<div class="padding-30 rounded bordered">
+
+						<div class="row">
+							
+							<div class="col-md-12 col-sm-6">
+								<!-- post -->
+								 {% for post in recent_news %}
+								<div class="post post-list clearfix">
+									<div class="thumb rounded">
+										
+										<a href="{% url "blog_detail" post.blog_slug %}">
+											<div class="inner">
+												<img src="{% static 'images/wave.png' %}" alt="post-title" />
+											</div>
+										</a>
+									</div>
+									<div class="details">
+										
+										<h5 class="post-title"><a href="{% url "blog_detail" post.blog_slug %}">{{post.title}}</a></h5>
+										<div class="post-bottom clearfix d-flex align-items-center">
+											<div class="social-share me-auto">
+												<button class="toggle-button icon-share"></button>
+												<ul class="icons list-unstyled list-inline mb-0">
+													<li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+													<li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+													<li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+													<li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+													<li class="list-inline-item"><a href="#"><i class="fab fa-telegram-plane"></i></a></li>
+													<li class="list-inline-item"><a href="#"><i class="far fa-envelope"></i></a></li>
+												</ul>
+											</div>
+											<div class="more-button float-end">
+												<a href="{% url "blog_detail" post.blog_slug %}"><span class="icon-options"></span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+							
+						</div>
+						<!-- load more button -->
+						<div class="text-center">
+							<button class="btn btn-simple">Load More</button>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="col-lg-4">
+
+					<!-- sidebar -->
+					<div class="sidebar">
+
+					</br>
+						<div class="post-tabs rounded bordered">
+							<!-- tab navs -->
+							<ul class="nav nav-tabs nav-pills nav-fill" id="postsTab" role="tablist">
+								<li class="nav-item" role="presentation"><button aria-controls="popular" aria-selected="true" class="nav-link active" data-bs-target="#popular" data-bs-toggle="tab" id="popular-tab" role="tab" type="button">Popular</button></li>
+								<li class="nav-item" role="presentation"><button aria-controls="recent" aria-selected="false" class="nav-link" data-bs-target="#recent" data-bs-toggle="tab" id="recent-tab" role="tab" type="button">Recent</button></li>
+							</ul>
+							<!-- tab contents -->
+							<div class="tab-content" id="postsTabContent">
+								<!-- loader -->
+								<div class="lds-dual-ring"></div>
+								<!-- popular posts -->
+								<div aria-labelledby="popular-tab" class="tab-pane fade show active" id="popular" role="tabpanel">
+									<!-- post -->
+									{% for post in popular %}
+									<div class="post post-list-sm circle">
+										<div class="thumb circle">
+											<a href="{% url "blog_detail" post.blog_slug %}">
+												<div class="inner">
+													<img src="{{media.Images.url}}" alt="post-title" />
+												</div>
+											</a>
+										</div>
+										<div class="details clearfix">
+											<h6 class="post-title my-0"><a href="{% url "blog_detail" post.blog_slug %}">{{post.title}}</a></h6>
+											<ul class="meta list-inline mt-1 mb-0">
+												<li class="list-inline-item">{{post.date}}</li>
+											</ul>
+										</div>
+									</div>
+									{% endfor %}
+									<!-- post -->
+									
+								</div>
+								<!-- recent posts -->
+								<div aria-labelledby="recent-tab" class="tab-pane fade" id="recent" role="tabpanel">
+									<!-- post -->
+									{% for post in recent_news %}
+									<div class="post post-list-sm circle">
+										<div class="thumb circle">
+											<a href="{% url "blog_detail" post.blog_slug %}">
+												<div class="inner">
+													<img src="{{post.image.url}}" alt="post-title" />
+												</div>
+											</a>
+										</div>
+										<div class="details clearfix">
+											<h6 class="post-title my-0"><a href="{% url "blog_detail" post.blog_slug %}">{{post.title}}</a></h6>
+											<ul class="meta list-inline mt-1 mb-0">
+												<li class="list-inline-item">{{post.date}}</li>
+											</ul>
+										</div>
+									</div>
+									{% endfor %}
+									
+								</div>
+							</div>
+						</div>
+
+					</br>
+						<!-- widget newsletter -->
+						<div class="widget rounded">
+							<div class="widget-header text-center">
+								<h3 class="widget-title">Newsletter</h3>
+								<img src="{% static 'images/news.png' %}" class="wave" alt="wave" />
+							</div>
+							<div class="widget-content">
+								<span class="newsletter-headline text-center mb-3">Join 70,000 subscribers!</span>
+								<form>
+									<div class="mb-2">
+										<input class="form-control w-100 text-center" placeholder="Email address…" type="email">
+									</div>
+									<button class="btn btn-default btn-full" type="submit">Sign Up</button>
+								</form>
+								<span class="newsletter-privacy text-center mt-3">En vous enrégistrant, vous agréez a notre <a href="#">Politique de Confidentialité</a></span>
+							</div>		
+						</div>
+
+
+						<!-- widget advertisement -->
+						<div class="widget no-container rounded text-md-center">
+							<span class="ads-title">- Sponsored Ad -</span>
+							<a href="#" class="widget-ads">
+								<img src="{% static 'images/ads/ad-751.png' %}" alt="Advertisement" />	
+							</a>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+
+	<!-- instagram feed -->
+	
+
+
+
+
+
+{% endblock body %}

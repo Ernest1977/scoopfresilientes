@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+{% block content %}
+
+	{% block category %}
+	
+	<div class="collapse navbar-collapse">
+		<!-- menus -->
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item dropdown active">
+				<a class="nav-link dropdown-toggle" href="/">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'about' %}">About</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'gallery' %}">Galerie</a>
+			</li>
+			
+			
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#">Produits</a>
+				<ul class="dropdown-menu">
+					{% for post in blog_cat %}
+					<!--<li><a class="dropdown-item" href="{% url "category" post.slug %}">{{post.name}}</a></li> -->
+					{% endfor %}
+					<!--<li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li> -->
+					<li><a class="dropdown-item" href="{% url 'produits' %}">Fruits déshydratés</a></li>
+					<li><a class="dropdown-item" href="{% url 'produits' %}">Légumes déshydratés</a></li>
+					<li><a class="dropdown-item" href="{% url 'produits' %}">Cosmétiques</a></li>
+				</ul>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'contact' %}">Contact</a>
+			</li>
+		</ul>
+	</div>
+{% endblock category %}
+
+<section class="main-content mt-3">
+		<div class="container-xl">
+			
+            <h3 class="bg-dark text-center text-white">MIEUX NOUS DECOUVRIR AVEC NOTRE GALLERIE</h3>
+
+			<div class="row gy-4" style="display: flex; margin: auto;">
+				
+				<div class="col-lg-4">
+					
+                    <div class="card" style="width: 17rem; margin: auto;">
+                        <img style="height: 250px;" class="card-img-top" src="{% static 'images/gallerie/tomates.png' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Tomates</h5>
+                        </div>
+                    </div>
+						
+                </div>
+
+                <div class="col-lg-4">
+				
+					<div class="card" style="width: 17rem; margin: auto;">
+                        <img style="height: 250px;" class="card-img-top" src="{% static 'images/gallerie/ananas.png' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Ananas</h5>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="col-lg-4">
+
+					<!-- sidebar -->
+					
+                    <div class="card" style="width: 17rem; margin: auto;">
+                        <img style="height: 250px;" class="card-img-top" src="{% static 'images/gallerie/oign.png' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Oignons</h5>
+                        </div>
+                    </div>
+				</div>
+
+				<div class="col-lg-4">
+				
+					<div class="card" style="width: 17rem; margin: auto;">
+                        <img style="height: 250px;" class="card-img-top" src="{% static 'images/gallerie/gel_aloe.png' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Gel Douche</h5>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="col-lg-4">
+				
+					<div class="card" style="width: 17rem; margin: auto;">
+                        <img style="height: 250px;" class="card-img-top" src="{% static 'images/gallerie/goyave.png' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Goyaves</h5>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="col-lg-4">
+				
+					<div class="card" style="width: 17rem; margin: auto;">
+                        <img style="height: 250px;" class="card-img-top" src="{% static 'images/gallerie/pomme.png' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Pomme</h5>
+                        </div>
+                    </div>
+                </div>
+
+			</div>
+
+		</div>
+	</section>
+
+{% endblock content %}
+{% endblock body %}

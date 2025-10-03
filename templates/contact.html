@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+{% block content %}
+
+	{% block category %}
+	
+	<div class="collapse navbar-collapse">
+		<!-- menus -->
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item dropdown active">
+				<a class="nav-link dropdown-toggle" href="/">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'about' %}">About</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'gallery' %}">Galerie</a>
+			</li>
+			
+			
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#">Produits</a>
+				<ul class="dropdown-menu">
+					{% for post in blog_cat %}
+					<!--<li><a class="dropdown-item" href="{% url "category" post.slug %}">{{post.name}}</a></li> -->
+					{% endfor %}
+					<!--<li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li> -->
+					<li><a class="dropdown-item" href="{% url 'produits' %}">Fruits déshydratés</a></li>
+					<li><a class="dropdown-item" href="{% url 'produits' %}">Légumes déshydratés</a></li>
+					<li><a class="dropdown-item" href="{% url 'produits' %}">Cosmétiques</a></li>
+				</ul>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'contact' %}">Contact</a>
+			</li>
+		</ul>
+	</div>
+{% endblock category %}
+
+	<section class="main-content mt-3">
+		<h3 class="bg-dark text-center text-white">Nous Contacter</h3>
+		<div class="row bg-light">
+			<div><p>        
+				</br>
+			</p></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-4 bg-light" style="margin-top: 10px;">
+
+				<form method="POST" action="">
+					{% csrf_token %}
+					{{ form.as_p }}
+					<!--
+					<div class="form-group">
+						<input 
+							type="text" 
+							name="name" 
+							placeholder="Entrez votre nom" 
+							class="form-control text-center"
+							required
+						/>
+					</div>
+					<div class="form-group mt-2">
+						<input 
+							type="email" 
+							name="email" 
+							placeholder="Entrez votre Email" 
+							class="form-control text-center"
+							required
+						/>
+					</div>
+					<div class="form-group mt-2">
+						<input 
+							type="tel" 
+							name="phone" 
+							placeholder="Entrez votre numéro" 
+							class="form-control text-center"
+						/>
+					</div>
+					<div class="form-group mt-2">
+						<label>Comment Pouvons-nous vous aider ?</label>
+						<textarea class="form-control" name="desc" cols="10" rows="5"></textarea>
+					</div> -->
+
+					<div class="d-grid gap-2 mt4">
+						<button class="btn btn-dark" type="submit">Envoyer</button></br>
+					</div> 
+
+				</form>
+			</div>
+
+			<div class="col-md-6">
+				
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14179.651292082452!2d13.512077610979256!3d7.341319276461256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10f01d1e730d4fe5%3A0x98c4e4e31b66602d!2sLOTISSEMENT%20PILOTE%20DE%20SELBE%20DARANG!5e1!3m2!1sfr!2sit!4v1753281750274!5m2!1sfr!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+	</section>
+
+{% endblock content %}
+{% endblock body %}
